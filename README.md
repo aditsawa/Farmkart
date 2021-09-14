@@ -1,5 +1,5 @@
 # Farmkart
 
-Modeled an efficient database using efficient ER modeling and normalization techniques to store, retrieve and update firm data
+##### Modeled an efficient database using efficient ER modeling and normalization techniques to store, retrieve and update firm data
 
-Applied multiple analytical functions and regular expressions in OracleSQL to deduct operational insights from the stored data
+###### Applied multiple analytical functions and regular expressions in OracleSQL to deduct operational insights from the stored data
