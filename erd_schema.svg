@@ -1,0 +1,379 @@
+<svg viewBox="0 0 1600 1100" xmlns="http://www.w3.org/2000/svg" font-family="monospace, sans-serif" font-size="11">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
+    </marker>
+    <style>
+      .entity-header { fill: #1a3a5c; }
+      .entity-header-alt { fill: #2e6da4; }
+      .entity-body { fill: #f0f6ff; }
+      .entity-border { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .pk { font-weight: bold; fill: #b5181a; }
+      .fk { fill: #1a5ca8; font-style: italic; }
+      .col { fill: #222; }
+      .header-text { fill: #fff; font-weight: bold; font-size: 12px; }
+      .rel-line { stroke: #555; stroke-width: 1.2; fill: none; }
+    </style>
+  </defs>
+
+  <!-- ===== BACKGROUND ===== -->
+  <rect width="1600" height="1100" fill="#f8fafc"/>
+  <text x="800" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a3a5c">FarmKart — Entity Relationship Diagram (Database Schema)</text>
+
+  <!-- ====================================================== -->
+  <!-- CUSTOMER -->
+  <!-- ====================================================== -->
+  <g id="customer">
+    <rect x="20" y="55" width="160" height="75" class="entity-border"/>
+    <rect x="20" y="55" width="160" height="20" class="entity-header"/>
+    <text x="100" y="69" text-anchor="middle" class="header-text">Customer</text>
+    <rect x="20" y="75" width="160" height="55" class="entity-body"/>
+    <text x="28" y="90"  class="pk">PK CustomerID</text>
+    <text x="28" y="103" class="col">   CFirstName</text>
+    <text x="28" y="116" class="col">   CLastName</text>
+  </g>
+
+  <!-- CustomerAddress -->
+  <g id="cust-addr">
+    <rect x="20" y="155" width="175" height="90" class="entity-border"/>
+    <rect x="20" y="155" width="175" height="20" class="entity-header"/>
+    <text x="107" y="169" text-anchor="middle" class="header-text">CustomerAddress</text>
+    <rect x="20" y="175" width="175" height="70" class="entity-body"/>
+    <text x="28" y="190" class="pk">PK CAddressID</text>
+    <text x="28" y="203" class="fk">FK CustomerID</text>
+    <text x="28" y="216" class="col">   CustomerAddress</text>
+    <text x="28" y="229" class="col">   City / Zip / State</text>
+  </g>
+
+  <!-- CustomerContact -->
+  <g id="cust-contact">
+    <rect x="20" y="265" width="175" height="77" class="entity-border"/>
+    <rect x="20" y="265" width="175" height="20" class="entity-header"/>
+    <text x="107" y="279" text-anchor="middle" class="header-text">CustomerContact</text>
+    <rect x="20" y="285" width="175" height="57" class="entity-body"/>
+    <text x="28" y="300" class="pk">PK CContactID</text>
+    <text x="28" y="313" class="fk">FK CustomerID</text>
+    <text x="28" y="326" class="col">   Email / Phone</text>
+  </g>
+
+  <!-- ====================================================== -->
+  <!-- JOB -->
+  <!-- ====================================================== -->
+  <g id="job">
+    <rect x="580" y="55" width="150" height="77" class="entity-border"/>
+    <rect x="580" y="55" width="150" height="20" class="entity-header"/>
+    <text x="655" y="69" text-anchor="middle" class="header-text">Job</text>
+    <rect x="580" y="75" width="150" height="57" class="entity-body"/>
+    <text x="588" y="90"  class="pk">PK JobID</text>
+    <text x="588" y="103" class="col">   JobDesc</text>
+    <text x="588" y="116" class="col">   Salary</text>
+  </g>
+
+  <!-- Employees -->
+  <g id="employees">
+    <rect x="580" y="160" width="160" height="103" class="entity-border"/>
+    <rect x="580" y="160" width="160" height="20" class="entity-header"/>
+    <text x="660" y="174" text-anchor="middle" class="header-text">Employees</text>
+    <rect x="580" y="180" width="160" height="83" class="entity-body"/>
+    <text x="588" y="195" class="pk">PK EmployeeID</text>
+    <text x="588" y="208" class="col">   EFirstName / ELastName</text>
+    <text x="588" y="221" class="col">   ManagerID</text>
+    <text x="588" y="234" class="col">   HireDate</text>
+    <text x="588" y="247" class="fk">FK JobID</text>
+  </g>
+
+  <!-- JobHistory -->
+  <g id="job-history">
+    <rect x="760" y="55" width="160" height="90" class="entity-border"/>
+    <rect x="760" y="55" width="160" height="20" class="entity-header"/>
+    <text x="840" y="69" text-anchor="middle" class="header-text">JobHistory</text>
+    <rect x="760" y="75" width="160" height="70" class="entity-body"/>
+    <text x="768" y="90"  class="pk">PK HistoryID</text>
+    <text x="768" y="103" class="fk">FK EmployeeID</text>
+    <text x="768" y="116" class="fk">FK JobID</text>
+    <text x="768" y="129" class="col">   StartDate / EndDate</text>
+  </g>
+
+  <!-- Employee_Address -->
+  <g id="emp-addr">
+    <rect x="760" y="165" width="175" height="103" class="entity-border"/>
+    <rect x="760" y="165" width="175" height="20" class="entity-header"/>
+    <text x="847" y="179" text-anchor="middle" class="header-text">Employee_Address</text>
+    <rect x="760" y="185" width="175" height="83" class="entity-body"/>
+    <text x="768" y="200" class="pk">PK EAddress_ID</text>
+    <text x="768" y="213" class="fk">FK EmployeeID</text>
+    <text x="768" y="226" class="col">   Employee_Address</text>
+    <text x="768" y="239" class="col">   City / State / ZIP</text>
+    <text x="768" y="252" class="col">   Country</text>
+  </g>
+
+  <!-- Employee_Contact -->
+  <g id="emp-contact">
+    <rect x="760" y="290" width="175" height="77" class="entity-border"/>
+    <rect x="760" y="290" width="175" height="20" class="entity-header"/>
+    <text x="847" y="304" text-anchor="middle" class="header-text">Employee_Contact</text>
+    <rect x="760" y="310" width="175" height="57" class="entity-body"/>
+    <text x="768" y="325" class="pk">PK EContact_ID</text>
+    <text x="768" y="338" class="fk">FK EmployeeID</text>
+    <text x="768" y="351" class="col">   Employee_Email / Phone</text>
+  </g>
+
+  <!-- ====================================================== -->
+  <!-- VEHICLE -->
+  <!-- ====================================================== -->
+  <g id="vehicle">
+    <rect x="200" y="380" width="175" height="115" class="entity-border"/>
+    <rect x="200" y="380" width="175" height="20" class="entity-header"/>
+    <text x="287" y="394" text-anchor="middle" class="header-text">Vehicle</text>
+    <rect x="200" y="400" width="175" height="95" class="entity-body"/>
+    <text x="208" y="415" class="pk">PK VehicleID</text>
+    <text x="208" y="428" class="col">   VehicleType</text>
+    <text x="208" y="441" class="col">   Registration</text>
+    <text x="208" y="454" class="col">   ServiceDue</text>
+    <text x="208" y="467" class="col">   LeaseStart / LeaseEnd</text>
+    <text x="208" y="480" class="col">   Availability</text>
+  </g>
+
+  <!-- Location -->
+  <g id="location">
+    <rect x="20" y="380" width="150" height="64" class="entity-border"/>
+    <rect x="20" y="380" width="150" height="20" class="entity-header"/>
+    <text x="95" y="394" text-anchor="middle" class="header-text">Location</text>
+    <rect x="20" y="400" width="150" height="44" class="entity-body"/>
+    <text x="28" y="415" class="pk">PK LocationID</text>
+    <text x="28" y="428" class="col">   LocationDesc</text>
+  </g>
+
+  <!-- Payment -->
+  <g id="payment">
+    <rect x="20" y="470" width="150" height="64" class="entity-border"/>
+    <rect x="20" y="470" width="150" height="20" class="entity-header"/>
+    <text x="95" y="484" text-anchor="middle" class="header-text">Payment</text>
+    <rect x="20" y="490" width="150" height="44" class="entity-body"/>
+    <text x="28" y="505" class="pk">PK PaymentID</text>
+    <text x="28" y="518" class="col">   PaymentType</text>
+  </g>
+
+  <!-- TimeTable -->
+  <g id="timetable">
+    <rect x="400" y="380" width="175" height="103" class="entity-border"/>
+    <rect x="400" y="380" width="175" height="20" class="entity-header"/>
+    <text x="487" y="394" text-anchor="middle" class="header-text">TimeTable</text>
+    <rect x="400" y="400" width="175" height="83" class="entity-body"/>
+    <text x="408" y="415" class="pk">PK TTID</text>
+    <text x="408" y="428" class="fk">FK VehicleID</text>
+    <text x="408" y="441" class="fk">FK LocationID</text>
+    <text x="408" y="454" class="fk">FK EmployeeID</text>
+    <text x="408" y="467" class="col">   TTDate / TTTime</text>
+  </g>
+
+  <!-- ====================================================== -->
+  <!-- ORDERS -->
+  <!-- ====================================================== -->
+  <g id="orders">
+    <rect x="200" y="540" width="175" height="130" class="entity-border"/>
+    <rect x="200" y="540" width="175" height="20" class="entity-header"/>
+    <text x="287" y="554" text-anchor="middle" class="header-text">Orders</text>
+    <rect x="200" y="560" width="175" height="110" class="entity-body"/>
+    <text x="208" y="575" class="pk">PK OrderID</text>
+    <text x="208" y="588" class="col">   OrderDate / OrderTime</text>
+    <text x="208" y="601" class="fk">FK CustomerID</text>
+    <text x="208" y="614" class="fk">FK VehicleID</text>
+    <text x="208" y="627" class="fk">FK PaymentID</text>
+    <text x="208" y="640" class="fk">FK LocationID</text>
+    <text x="208" y="653" class="col">   OrderTotal</text>
+  </g>
+
+  <!-- OrderItems -->
+  <g id="order-items">
+    <rect x="20" y="570" width="165" height="90" class="entity-border"/>
+    <rect x="20" y="570" width="165" height="20" class="entity-header"/>
+    <text x="102" y="584" text-anchor="middle" class="header-text">OrderItems</text>
+    <rect x="20" y="590" width="165" height="70" class="entity-body"/>
+    <text x="28" y="605" class="pk">PK OrderID, ItemID</text>
+    <text x="28" y="618" class="fk">FK ProductID</text>
+    <text x="28" y="631" class="col">   Quantity</text>
+    <text x="28" y="644" class="col">   LineItemTotal</text>
+  </g>
+
+  <!-- ====================================================== -->
+  <!-- PRODUCTS -->
+  <!-- ====================================================== -->
+  <g id="products">
+    <rect x="420" y="540" width="165" height="90" class="entity-border"/>
+    <rect x="420" y="540" width="165" height="20" class="entity-header"/>
+    <text x="502" y="554" text-anchor="middle" class="header-text">Products</text>
+    <rect x="420" y="560" width="165" height="70" class="entity-body"/>
+    <text x="428" y="575" class="pk">PK ProductID</text>
+    <text x="428" y="588" class="col">   Description</text>
+    <text x="428" y="601" class="col">   ProductCost</text>
+    <text x="428" y="614" class="fk">FK PCategoryID</text>
+  </g>
+
+  <!-- ProductCategory -->
+  <g id="prod-cat">
+    <rect x="420" y="660" width="165" height="64" class="entity-border"/>
+    <rect x="420" y="660" width="165" height="20" class="entity-header"/>
+    <text x="502" y="674" text-anchor="middle" class="header-text">ProductCategory</text>
+    <rect x="420" y="680" width="165" height="44" class="entity-body"/>
+    <text x="428" y="695" class="pk">PK PCategoryID</text>
+    <text x="428" y="708" class="col">   Category</text>
+  </g>
+
+  <!-- ====================================================== -->
+  <!-- VENDOR -->
+  <!-- ====================================================== -->
+  <g id="vendor">
+    <rect x="950" y="55" width="165" height="103" class="entity-border"/>
+    <rect x="950" y="55" width="165" height="20" class="entity-header"/>
+    <text x="1032" y="69" text-anchor="middle" class="header-text">Vendor</text>
+    <rect x="950" y="75" width="165" height="83" class="entity-body"/>
+    <text x="958" y="90"  class="pk">PK VendorID</text>
+    <text x="958" y="103" class="col">   Vendor_Name</text>
+    <text x="958" y="116" class="col">   Vendor_Address</text>
+    <text x="958" y="129" class="col">   City / State / ZIP</text>
+    <text x="958" y="142" class="col">   Country</text>
+  </g>
+
+  <!-- VOrder -->
+  <g id="vorder">
+    <rect x="950" y="185" width="165" height="103" class="entity-border"/>
+    <rect x="950" y="185" width="165" height="20" class="entity-header"/>
+    <text x="1032" y="199" text-anchor="middle" class="header-text">VOrder</text>
+    <rect x="950" y="205" width="165" height="83" class="entity-body"/>
+    <text x="958" y="220" class="pk">PK VOrderID</text>
+    <text x="958" y="233" class="fk">FK VendorID</text>
+    <text x="958" y="246" class="fk">FK PaymentID</text>
+    <text x="958" y="259" class="col">   VOrderDate / VOrderTime</text>
+    <text x="958" y="272" class="col">   VOrderTotal</text>
+  </g>
+
+  <!-- VOrderItems -->
+  <g id="vorder-items">
+    <rect x="950" y="315" width="165" height="90" class="entity-border"/>
+    <rect x="950" y="315" width="165" height="20" class="entity-header"/>
+    <text x="1032" y="329" text-anchor="middle" class="header-text">VOrderItems</text>
+    <rect x="950" y="335" width="165" height="70" class="entity-body"/>
+    <text x="958" y="350" class="pk">PK VOrderID, VItemID</text>
+    <text x="958" y="363" class="fk">FK ProductID</text>
+    <text x="958" y="376" class="col">   VQuantity</text>
+    <text x="958" y="389" class="col">   VLineItemTotal</text>
+  </g>
+
+  <!-- ====================================================== -->
+  <!-- WAREHOUSE -->
+  <!-- ====================================================== -->
+  <g id="warehouse">
+    <rect x="950" y="435" width="165" height="90" class="entity-border"/>
+    <rect x="950" y="435" width="165" height="20" class="entity-header"/>
+    <text x="1032" y="449" text-anchor="middle" class="header-text">Warehouse</text>
+    <rect x="950" y="455" width="165" height="70" class="entity-body"/>
+    <text x="958" y="470" class="pk">PK WarehouseID</text>
+    <text x="958" y="483" class="fk">FK ProductID</text>
+    <text x="958" y="496" class="fk">FK VOrderID</text>
+    <text x="958" y="509" class="col">   Quantity / OutOfStock</text>
+  </g>
+
+  <!-- WarehouseEmployeeDetails -->
+  <g id="wh-emp">
+    <rect x="950" y="555" width="175" height="90" class="entity-border"/>
+    <rect x="950" y="555" width="175" height="20" class="entity-header"/>
+    <text x="1037" y="569" text-anchor="middle" class="header-text">WarehouseEmployees</text>
+    <rect x="950" y="575" width="175" height="70" class="entity-body"/>
+    <text x="958" y="590" class="pk">PK WEMPID</text>
+    <text x="958" y="603" class="fk">FK WarehouseID</text>
+    <text x="958" y="616" class="fk">FK EmployeeID</text>
+    <text x="958" y="629" class="col">   StartDate / EndDate</text>
+  </g>
+
+  <!-- ====================================================== -->
+  <!-- RELATIONSHIP LINES -->
+  <!-- ====================================================== -->
+
+  <!-- Customer → CustomerAddress -->
+  <line x1="100" y1="130" x2="100" y2="155" class="rel-line" marker-end="url(#arrow)"/>
+  <!-- Customer → CustomerContact -->
+  <line x1="100" y1="130" x2="100" y2="265" class="rel-line" marker-end="url(#arrow)"/>
+
+  <!-- Job → Employees -->
+  <line x1="655" y1="132" x2="655" y2="160" class="rel-line" marker-end="url(#arrow)"/>
+  <!-- Job → JobHistory -->
+  <line x1="730" y1="93" x2="760" y2="93" class="rel-line" marker-end="url(#arrow)"/>
+  <!-- Employees → JobHistory -->
+  <line x1="740" y1="195" x2="760" y2="100" class="rel-line" marker-end="url(#arrow)"/>
+  <!-- Employees → Employee_Address -->
+  <line x1="760" y1="210" x2="935" y2="210" class="rel-line" marker-end="url(#arrow)"/>
+  <!-- Employees → Employee_Contact -->
+  <line x1="760" y1="325" x2="935" y2="325" class="rel-line" marker-end="url(#arrow)"/>
+
+  <!-- Vehicle → TimeTable -->
+  <line x1="375" y1="430" x2="400" y2="430" class="rel-line" marker-end="url(#arrow)"/>
+  <!-- Location → Orders -->
+  <line x1="95" y1="444" x2="95" y2="590" class="rel-line"/>
+  <line x1="95" y1="590" x2="200" y2="614" class="rel-line" marker-end="url(#arrow)"/>
+  <!-- Location → TimeTable -->
+  <line x1="170" y1="406" x2="400" y2="441" class="rel-line" marker-end="url(#arrow)"/>
+  <!-- Payment → Orders -->
+  <line x1="170" y1="505" x2="200" y2="627" class="rel-line" marker-end="url(#arrow)"/>
+  <!-- Payment → VOrder -->
+  <line x1="170" y1="490" x2="950" y2="246" class="rel-line" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+
+  <!-- Customer → Orders -->
+  <line x1="180" y1="92" x2="287" y2="540" class="rel-line" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <!-- Vehicle → Orders -->
+  <line x1="287" y1="495" x2="287" y2="540" class="rel-line" marker-end="url(#arrow)"/>
+
+  <!-- Orders → OrderItems -->
+  <line x1="200" y1="610" x2="185" y2="610" class="rel-line" marker-end="url(#arrow)"/>
+  <!-- Products → OrderItems -->
+  <line x1="502" y1="540" x2="185" y2="618" class="rel-line" marker-end="url(#arrow)"/>
+  <!-- Products → VOrderItems -->
+  <line x1="585" y1="580" x2="950" y2="363" class="rel-line" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+
+  <!-- ProductCategory → Products -->
+  <line x1="502" y1="660" x2="502" y2="630" class="rel-line" marker-end="url(#arrow)"/>
+
+  <!-- Vendor → VOrder -->
+  <line x1="1032" y1="158" x2="1032" y2="185" class="rel-line" marker-end="url(#arrow)"/>
+  <!-- VOrder → VOrderItems -->
+  <line x1="1032" y1="288" x2="1032" y2="315" class="rel-line" marker-end="url(#arrow)"/>
+
+  <!-- Warehouse connections -->
+  <line x1="1032" y1="405" x2="1032" y2="435" class="rel-line" marker-end="url(#arrow)"/>
+  <!-- VOrder → Warehouse -->
+  <line x1="1115" y1="450" x2="1115" y2="480" class="rel-line"/>
+  <!-- Products → Warehouse -->
+  <line x1="585" y1="575" x2="950" y2="483" class="rel-line" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+
+  <!-- Warehouse → WarehouseEmployees -->
+  <line x1="1032" y1="525" x2="1032" y2="555" class="rel-line" marker-end="url(#arrow)"/>
+  <!-- Employees → WarehouseEmployees (long line) -->
+  <line x1="740" y1="240" x2="950" y2="616" class="rel-line" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+
+  <!-- Employees → TimeTable -->
+  <line x1="660" y1="263" x2="487" y2="454" class="rel-line" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+
+  <!-- ====================================================== -->
+  <!-- LEGEND -->
+  <!-- ====================================================== -->
+  <rect x="20" y="760" width="300" height="120" fill="#fff" stroke="#ccc" stroke-width="1" rx="4"/>
+  <text x="35" y="780" font-size="12" font-weight="bold" fill="#1a3a5c">Legend</text>
+  <rect x="35"  y="790" width="14" height="14" fill="#1a3a5c"/>
+  <text x="55"  y="802" class="col">Entity (Table)</text>
+  <text x="35"  y="820" class="pk">PK</text>
+  <text x="55"  y="820" class="col">Primary Key</text>
+  <text x="35"  y="836" class="fk">FK</text>
+  <text x="55"  y="836" class="col">Foreign Key</text>
+  <line x1="35" y1="853" x2="65" y2="853" stroke="#555" stroke-width="1.2"/>
+  <text x="70"  y="857" class="col">Relationship (FK reference)</text>
+  <line x1="35" y1="870" x2="65" y2="870" stroke="#555" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="70"  y="874" class="col">Cross-domain relationship</text>
+
+  <!-- Title block -->
+  <rect x="20" y="900" width="300" height="80" fill="#f0f6ff" stroke="#1a3a5c" stroke-width="1" rx="4"/>
+  <text x="35" y="918" font-size="11" font-weight="bold" fill="#1a3a5c">Project: FarmKart DBMS</text>
+  <text x="35" y="933" font-size="11" fill="#333">University at Buffalo — School of Management</text>
+  <text x="35" y="948" font-size="11" fill="#333">Version: 1.0  |  Date: 2021-04-26</text>
+  <text x="35" y="963" font-size="11" fill="#333">Database: PostgreSQL / Standard SQL</text>
+  <text x="35" y="978" font-size="10" fill="#666">Tables designed in 3rd Normal Form (3NF)</text>
+</svg>
